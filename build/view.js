@@ -1664,7 +1664,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const Style = ({
   attributes,
-  id
+  id,
+  device
 }) => {
   const {
     iconsStyle,
@@ -1672,7 +1673,10 @@ const Style = ({
     indicator,
     activeIndicator,
     indicatoRadius,
-    indicatorBorder
+    indicatorBorder,
+    innerGap,
+    containerHeigh,
+    contentAlignment
   } = attributes;
   const mainSl = `#${id}`;
   const icon = `${mainSl} .icon`;
@@ -1710,6 +1714,79 @@ const Style = ({
 		
 		
 		}
+		.d-block{
+		height:100%;
+		object-fit:cover;
+		}
+
+		.caption{
+		position: absolute;
+  bottom: 100px;
+  left: ${innerGap[device]};
+  right: ${innerGap[device]};
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 100%;
+  text-align: ${contentAlignment};
+  z-index: 2;
+		
+		}
+  .overly{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  }
+  .caroselContainer{
+  position: relative;
+  height: ${containerHeigh[device]};
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  }
+  .caroselWrapper{
+  max-width:100%;
+   position: relative;
+  z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+  .carouselContainer {
+    height: 300px; 
+  }
+
+  .caption {
+    bottom: 50px; 
+    left: 10px;
+    right: 10px;
+    height: auto; 
+    padding: 5px;
+  }
+
+  .caption h3 {
+    font-size: 1.5rem; 
+  }
+
+  .caption p {
+    font-size: 1rem; 
+  }
+}
+
+
+
+
+
+
+
+
+  
 
 	`
     }
@@ -1734,6 +1811,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Carousel */ "./node_modules/react-bootstrap/esm/Carousel.js");
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+
 
 
 
@@ -1744,11 +1823,17 @@ const Slider = ({
     sliders,
     icon
   } = attributes;
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"]
-  // akbar cole last a jaye atke thakbe 
-  , {
-    wrap: true,
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "caroselWrapper vertical-carousel"
+    // className="vertical-carousel
+    ,
+    wrap: true // Carousel will wrap to the first slide after the last
+    ,
     prevIcon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      style: {
+        position: 'relative',
+        zIndex: '3'
+      },
       className: "icon prev",
       dangerouslySetInnerHTML: {
         __html: icon
@@ -1756,57 +1841,79 @@ const Slider = ({
     }) // Custom Prev Icon
     ,
     nextIcon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "icon"
-      //   style={{color:"red", backgroundColor:"black", width:"20px",height:"20px"}}
-      ,
-
+      style: {
+        position: "relative",
+        zIndex: "3"
+      },
+      className: "icon",
       dangerouslySetInnerHTML: {
         __html: icon
       }
-    }),
-    interval: 3000 // 3 seconds per slide
+    }) // Custom Next Icon
     ,
-    style: {
-      width: "700px"
-    }
+    interval: 3000 // 3 seconds per slide
+    // style={{ width: '700px' }}
   }, sliders.map((slide, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
     key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: {
-      height: "500px",
-      overflow: "hidden",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#ddd"
-    }
+    className: "caroselContainer"
+    // style={{
+    //   position: 'relative',
+    //   height: '500px',
+    //   overflow: 'hidden',
+    //   display: 'flex',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    //   backgroundColor: '#ddd',
+    // }}
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "d-block w-100",
     src: slide.img,
-    alt: `Slide ${index + 1}`,
-    style: {
-      height: "100%",
-      objectFit: "cover"
-    }
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"].Caption, {
-    style: {
-      backgroundColor: "rgba(0, 0, 0, 0.6)",
-      padding: "10px",
-      borderRadius: "5px",
-      maxWidth: "80%",
-      margin: "auto"
-    }
+    alt: `Slide ${index + 1}`
+    // style={{ height: '100%', objectFit: 'cover' }}
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "overly"
+    // style={{
+    //   position: 'absolute',
+    //   top: 0,
+    //   left: 0,
+    //   right: 0,
+    //   bottom: 0,
+    //   backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+    //   zIndex: 1, 
+    // }}
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"].Caption, {
+    className: "caption"
+    // style={{
+    //   position: 'absolute',
+    //   bottom: '100px',
+    //   left: "100px",
+    //   right:"100px",
+    //   height:"200px",
+    //   backgroundColor: 'rgba(0, 0, 0, 0.6)', 
+    //   padding: '10px',
+    //   borderRadius: '5px',
+    //   maxWidth: '100%',
+    //   textAlign: 'center', 
+    //   zIndex: 2, 
+    // }}
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     style: {
-      fontSize: "18px",
-      margin: "5px 0"
+      fontSize: '18px',
+      margin: '5px 0'
     }
   }, slide.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     style: {
-      fontSize: "14px",
-      margin: "0"
+      fontSize: '14px',
+      margin: '0'
     }
-  }, slide.desc)))));
+  }, slide.desc), slide?.buttonTest && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    variant: "outline-light",
+    style: {
+      fontSize: '14px',
+      marginTop: '50px'
+    }
+  }, slide?.buttonTest))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Slider);
 
@@ -3422,6 +3529,63 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/Button.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Button.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _restart_ui_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @restart/ui/Button */ "./node_modules/@restart/ui/esm/Button.js");
+/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+"use client";
+
+
+
+
+
+
+const Button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({
+  as,
+  bsPrefix,
+  variant = 'primary',
+  size,
+  active = false,
+  disabled = false,
+  className,
+  ...props
+}, ref) => {
+  const prefix = (0,_ThemeProvider__WEBPACK_IMPORTED_MODULE_3__.useBootstrapPrefix)(bsPrefix, 'btn');
+  const [buttonProps, {
+    tagName
+  }] = (0,_restart_ui_Button__WEBPACK_IMPORTED_MODULE_4__.useButtonProps)({
+    tagName: as,
+    disabled,
+    ...props
+  });
+  const Component = tagName;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Component, {
+    ...buttonProps,
+    ...props,
+    ref: ref,
+    disabled: disabled,
+    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && 'disabled')
+  });
+});
+Button.displayName = 'Button';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
 
 /***/ }),
 

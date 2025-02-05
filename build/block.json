@@ -21,17 +21,26 @@
         {
           "img": "https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.jpg?s=2048x2048&w=is&k=20&c=bTE9WTRrEu0QmBJhr-3bqc4xO5jLpkuXFScIpSJWXRQ=",
           "title": "First Slide Label",
-          "desc": "This is a short description for the first slide."
+          "desc": "This is a short description for the first slide.",
+          "buttonTest": "Click Me",
+          "url": "http://ww.google.com",
+          "new": true
         },
         {
           "img": "https://plus.unsplash.com/premium_photo-1661367915642-12ed8cc242bb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           "title": "Second Slide Label",
-          "desc": "This slide has a longer description to check text wrapping properly."
+          "desc": "This slide has a longer description to check text wrapping properly.",
+          "buttonTest": "Click Me",
+          "url": "http://ww.google.com",
+          "new": true
         },
         {
           "img": "https://images.unsplash.com/photo-1453365180904-3312e935e12b?q=80&w=1929&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           "title": "Third Slide Label",
-          "desc": "Compellingly e-enable cross-media niche markets with focused web services. Proactively extend business strategic theme."
+          "desc": "Compellingly e-enable cross-media niche markets with focused web services. Proactively extend business strategic theme.",
+          "buttonTest": "Click Me",
+          "url": "http://ww.google.com",
+          "new": true
         }
       ]
     },
@@ -89,6 +98,26 @@
         "style": "dashed",
         "width": "0px"
       }
+    },
+    "innerGap": {
+      "type": "object",
+      "default": {
+        "desktop": "100px",
+        "tablet": "100px",
+        "mobile": "50px"
+      }
+    },
+    "containerHeigh": {
+      "type": "object",
+      "default": {
+        "desktop": "500px",
+        "tablet": "500px",
+        "mobile": "300px"
+      }
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "center"
     }
   },
   "supports": {

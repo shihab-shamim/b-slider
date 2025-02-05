@@ -1,15 +1,17 @@
 import { __ } from '@wordpress/i18n';
 import Button from 'react-bootstrap/Button';
+import {useState} from "react"
 
-import { PanelBody, SelectControl,__experimentalInputControl  as InputControl, TextareaControl, Flex} from '@wordpress/components';
+import { PanelBody, SelectControl,__experimentalInputControl  as InputControl, TextareaControl, Flex,FormToggle, __experimentalUnitControl as UnitControl} from '@wordpress/components';
 import { updateData } from '../../../../utils/functions';
-import {  IconLibrary, InlineMediaUpload } from '../../../../../../bpl-tools/Components';
+import {   BButtonGroup, Device, IconLibrary, InlineMediaUpload, Label } from '../../../../../../bpl-tools/Components';
 
 
-const General = ({ attributes, setAttributes }) => {
-  const { icon,sliders } = attributes;
 
- 
+const General = ({ attributes, setAttributes,device }) => {
+  const { icon,sliders,innerGap,containerHeigh,contentAlignment } = attributes;
+
+console.log(device);
 
   return (
   <>  <PanelBody className='bPlPanelBody' title={__('Slides', 'b-blocks')} initialOpen={false}>
@@ -54,7 +56,31 @@ const General = ({ attributes, setAttributes }) => {
     })
    }
 />
-<Flex>
+<InputControl label="Button  label" value={slider?.buttonTest}
+onChange={(value)=>{
+  setAttributes({
+    sliders: updateData(sliders, value,index,"buttonTest")
+  })
+}}
+
+/>
+{slider?.buttonTest && <InputControl
+onChange={(value)=>{
+  setAttributes({
+    sliders: updateData(sliders, value,index,"url")
+  })
+}}
+
+label="Button  Url" value={slider?.url} />}
+{slider?.buttonTest && <Label>open in new tab<FormToggle
+	checked={ slider?.new }
+	onChange={ () => {
+    setAttributes({
+      sliders: updateData(sliders,!slider?.new,index,"new")
+    })
+  } }
+ /></Label>}
+<Flex style={{marginTop:"10px"}}>
   {/* duplicate */}
 <Button
 onClick={()=>{
@@ -84,8 +110,8 @@ variant="outline-primary">
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    fill="white"  // Ensures the inner parts are red
-    stroke="blue " // Ensures the border is red
+    fill="white" 
+    stroke="blue "
     strokeWidth="2"
     d="M4.5,17 L1,17 L1,1 L1,1 L17,1 L17,4.5 M7,7 L23,7 L23,23 L7,23 L7,7 Z M15,11 L15,19 L15,11 Z M11,15 L19,15 L11,15 Z"
   />
@@ -141,6 +167,40 @@ style={{width:"220px"}} variant="primary">   <svg
 
 {/* layout setting  (5)   */}
 <PanelBody className='bPlPanelBody' title={__('Layout Setting', 'b-blocks')} initialOpen={false}>
+  {/* 1no */}
+ <Flex justify='space-between'>
+ <Label><strong>Gap</strong> </Label>
+  <Device/>
+  
+ </Flex>
+ 
+ <UnitControl min={0} label="Left/Right Inner Gap" value={innerGap[device]} onChange={(value)=>{
+  setAttributes({ innerGap: updateData(innerGap, value,device) })
+ }} />
+
+ <Flex justify='space-between'>
+ <Label><strong>Height</strong> </Label>
+  <Device/>
+  
+ </Flex>
+ 
+ <UnitControl label="SLIDER HEIGHT" min={0}  value={containerHeigh[device]} onChange={(value)=>{
+  setAttributes({ containerHeigh: updateData(containerHeigh, value,device) })
+ }} />
+
+
+<Label>Content Alignment</Label>
+<BButtonGroup options={[
+  { label: 'Left', value: 'left' },
+  { label: 'Center', value: 'center' },
+  { label: 'Right', value: 'right' },
+]}
+value={contentAlignment}
+onChange={(value)=>{
+  setAttributes({ contentAlignment: value })
+}}
+label=''
+ />
     
 
 
