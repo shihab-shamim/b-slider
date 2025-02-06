@@ -1,23 +1,25 @@
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+// present code 
 
 const Slider = ({ attributes }) => {
-  const { sliders, icon ,effect,autoPlay,arrowButton,showPagination} = attributes;
+  const { sliders, icon ,effect,autoPlay,arrowButton,showPagination,interrogation,wrap} = attributes;
 
   return (
     <Carousel
-    pause={"hover"}
+    pause={interrogation?"hover":false}
     controls={arrowButton}
     indicators={showPagination}
     slide={true}
     fade={effect==="fade"?true:false}
+    touch={true}
     
    keyboard={true}
     className='caroselWrapper vertical-carousel'
-      wrap={true} 
+      wrap={wrap} 
       prevIcon={
-        <span  style={{ position: 'relative', zIndex: '3' }}
+        <span  style={{  zIndex: '3' }}
           className='icon prev'
           dangerouslySetInnerHTML={{ __html: icon }}
         />

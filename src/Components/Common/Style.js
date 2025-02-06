@@ -1,11 +1,19 @@
 import { getBoxCSS ,getBorderBoxCSS} from '../../../../bpl-tools/utils/getCSS';
 
 const Style = ({ attributes, id,device }) => {
-	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment} = attributes;
+	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius} = attributes;
 
 	const mainSl = `#${id}`;
 	const icon = `${mainSl} .icon`;
 	const prev = `${mainSl} .prev`;
+  const possition=()=>{
+    if(indicatorPosition === "top"){
+      return 'top:-440px;'
+    }
+    if(indicatorPosition === "bottom"){
+      return 'bottom:0px;'
+    }
+  }
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
@@ -64,7 +72,7 @@ const Style = ({ attributes, id,device }) => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${overlyColor};
   z-index: 1;
   }
   .caroselContainer{
@@ -79,8 +87,22 @@ const Style = ({ attributes, id,device }) => {
   .caroselWrapper{
   max-width:100%;
    position: relative;
-  z-index: 1;
+  z-index: 10;
+   margin: ${slideMargin?.top} ${slideMargin?.right} ${slideMargin?.bottom} ${slideMargin?.left};
+   overflow: hidden;
+   border-radius: ${sliderRadius?.top} ${sliderRadius?.right} ${sliderRadius?.bottom} ${sliderRadius?.left};
+
   }
+  .carousel-indicators{
+	display: flex;
+	flex-direction: ${direction};
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    ${possition()}
+    
+	}
+
 
   @media (max-width: 768px) {
   	.d-block{

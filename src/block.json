@@ -142,6 +142,44 @@
 	"showPagination":{
 		"type":"boolean",
 		"default":true
+	},
+	"interrogation":{
+		"type":"boolean",
+        "default":true
+	},
+	"wrap":{
+		"type":"boolean",
+		"default":true
+	},
+	"direction":{
+		"type":"string",
+		"default":"row"
+	},
+	"indicatorPosition":{
+		"type":"string",
+        "default":"bottom"
+	},
+	"overlyColor":{
+		"type":"string",
+		"default":"rgba(0, 0, 0, 0.5)"
+	},
+	"slideMargin":{
+		"type":"object",
+		"default":{
+			"top":"0px",
+			"right":"0px",
+			"bottom":"0px",
+			"left":"0px"
+		}
+	},
+	"sliderRadius":{
+		"type":"object",
+		"default":{
+			"top":"0px",
+			"right":"0px",
+			"bottom":"0px",
+			"left":"0px"
+		}
 	}
 	},
 	"supports": {

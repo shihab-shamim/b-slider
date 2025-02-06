@@ -10,9 +10,8 @@ import { ColorControl, ColorsControl, Label } from "../../../../../../bpl-tools/
 import { updateData } from "../../../../utils/functions";
 
 const Style = ({ attributes, setAttributes }) => {
-  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder} = attributes;
+  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius} = attributes;
 
-console.log(indicatorBorder);
 
 
   return (
@@ -20,9 +19,23 @@ console.log(indicatorBorder);
       <PanelBody
       
         className="bPlPanelBody"
-        title={__("Purpose styles title", "b-blocks")}
+        title={__("Slider", "b-blocks")}
         initialOpen={false}
       >
+        <ColorControl value={overlyColor}  label={__("Overly Color","b-blocks")} onChange={(value)=>{
+         setAttributes({overlyColor:value})
+        }} />
+
+        <BoxControl values={slideMargin} label={__("Margin","b-blocks")} onChange={(value)=>{
+          setAttributes({slideMargin:value})
+          
+        }}  />
+
+        <BoxControl values={sliderRadius} label={__("Border Radius","b-blocks")} onChange={(value)=>{
+          setAttributes({sliderRadius:value})
+          
+        }}  />
+
       </PanelBody>
 
 

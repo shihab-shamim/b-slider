@@ -9,7 +9,9 @@ import {   BButtonGroup, Device, IconLibrary, InlineMediaUpload, Label } from '.
 
 
 const General = ({ attributes, setAttributes,device }) => {
-  const { icon,sliders,innerGap,containerHeigh,contentAlignment,effect,autoPlay,arrowButton,showPagination} = attributes;
+  const { icon,sliders,innerGap,containerHeigh,contentAlignment,effect,autoPlay,arrowButton,showPagination,interrogation,wrap,direction,
+    indicatorPosition
+  } = attributes;
 
 
 
@@ -117,7 +119,7 @@ variant="outline-primary">
   />
 </svg>
 
-   Slide</Button>
+   Duplicate</Button>
 
    {/* delete */}
 <Button
@@ -128,7 +130,7 @@ onClick={()=>{
 }}
 variant="outline-danger"> 
 <svg  style={{ marginRight: "4px" }} stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path></svg>
-  Slide</Button>
+  Delete</Button>
 </Flex>
 
   </PanelBody>)
@@ -296,6 +298,32 @@ onChange={(value)=>{
 
 </Flex>
 
+<Flex justify='center' align='center' style={{marginTop:"10px"}}>
+<FormToggle
+	checked={ interrogation}
+	onChange={ () =>{
+    setAttributes({interrogation:!interrogation})
+  } }
+/>
+
+  <Label className={"mt0"}><strong>Pause mouse hover</strong></Label>
+
+
+</Flex>
+
+<Flex justify='center' align='center' style={{marginTop:"10px"}}>
+<FormToggle
+	checked={ wrap}
+	onChange={ () =>{
+    setAttributes({wrap:!wrap})
+  } }
+/>
+
+  <Label className={"mt0"}><strong>Wrap Slide Enable</strong></Label>
+
+
+</Flex>
+
 
 
     </PanelBody>
@@ -303,7 +331,45 @@ onChange={(value)=>{
     {/* indicator */}
 <PanelBody className='bPlPanelBody' title={__('Indicators', 'b-blocks')} initialOpen={false}>
     
+<Flex  align='center' gap={0}>
 
+<Label><strong>Direction</strong> </Label>
+<span style={{marginTop:"20px"}}>  <SelectControl
+
+value={direction} 
+onChange={ ( value ) => { 
+  setAttributes({ direction: value })
+} }
+options={ [
+  { value: null, label: 'Select a Effect', disabled: true },
+  { value: 'row', label: 'Horizontal' },
+  { value: 'column', label: 'Vertical' },
+  
+] }
+
+/></span>
+
+</Flex>
+
+<Flex  align='center' gap={0}>
+
+<Label>Position(Top/Bottom)</Label>
+<span style={{marginTop:"20px"}}>  <SelectControl
+
+value={indicatorPosition} 
+onChange={ ( value ) => { 
+  setAttributes({ indicatorPosition: value })
+} }
+options={ [
+  { value: null, label: 'Select a Effect', disabled: true },
+  { value: 'top', label: 'Top' },
+  { value: 'bottom', label: 'Bottom' },
+  
+] }
+
+/></span>
+
+</Flex>
 
 
     </PanelBody>
