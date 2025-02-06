@@ -27,7 +27,7 @@ const Style = ({ attributes, id,device }) => {
 		
 		}
 		${prev}{
-		transform: rotate(180deg);
+		transform: scaleX(-1);
 		display: inline-block;
 		
 		}
@@ -55,8 +55,8 @@ const Style = ({ attributes, id,device }) => {
 		.caption{
 		position: absolute;
   bottom: 100px;
-  left: ${innerGap[device]};
-  right: ${innerGap[device]};
+  left: ${innerGap.desktop};
+  right: ${innerGap.desktop};
   height: 200px;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
@@ -77,7 +77,7 @@ const Style = ({ attributes, id,device }) => {
   }
   .caroselContainer{
   position: relative;
-  height: ${containerHeigh[device]};
+  height: ${containerHeigh.desktop};
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -131,7 +131,27 @@ const Style = ({ attributes, id,device }) => {
 }
 
 
+@media (max-width: 650px){
+ .caroselContainer{
+  height: ${containerHeigh.mobile};
+  }
+  .caption{
+  left: ${innerGap.mobile};
+  right: ${innerGap.mobile};
+  }
+  
+  }
+@media (min-width: 650px) and(max-width:1024px{
+ .caroselContainer{
+  height: ${containerHeigh.tablet};
+ }
+  .caption{
+  left: ${innerGap.tablet};
+  right: ${innerGap.tablet};
+  }
 
+
+}
 
 
 

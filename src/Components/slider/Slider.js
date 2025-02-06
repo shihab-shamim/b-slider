@@ -19,7 +19,7 @@ const Slider = ({ attributes }) => {
     className='caroselWrapper vertical-carousel'
       wrap={wrap} 
       prevIcon={
-        <span  style={{  zIndex: '3' }}
+        <span  style={{ position:"relative", zIndex: '3' }}
           className='icon prev'
           dangerouslySetInnerHTML={{ __html: icon }}
         />
