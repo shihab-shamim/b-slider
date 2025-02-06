@@ -19,6 +19,22 @@ $primaryColor: #4527a4;
 		z-index: 10;
 		
 	}
+	.caroselWrapper {
+		position: relative;
+		z-index: 2;
+	  }
+	  
+	  .icon {
+		
+		
+		
+		z-index: 3;
+	  }
+	  
+	  .carousel-control-prev,
+	  .carousel-control-next {
+		z-index: 4 !important;
+	  }
 	
 
 	

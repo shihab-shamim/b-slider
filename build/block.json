@@ -118,6 +118,26 @@
     "contentAlignment": {
       "type": "string",
       "default": "center"
+    },
+    "effect": {
+      "type": "string",
+      "default": "default"
+    },
+    "autoPlay": {
+      "type": "object",
+      "default": {
+        "enabled": false,
+        "interval": 2000,
+        "time": 5000000
+      }
+    },
+    "arrowButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPagination": {
+      "type": "boolean",
+      "default": true
     }
   },
   "supports": {

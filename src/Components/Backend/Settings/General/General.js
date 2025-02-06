@@ -2,16 +2,16 @@ import { __ } from '@wordpress/i18n';
 import Button from 'react-bootstrap/Button';
 import {useState} from "react"
 
-import { PanelBody, SelectControl,__experimentalInputControl  as InputControl, TextareaControl, Flex,FormToggle, __experimentalUnitControl as UnitControl} from '@wordpress/components';
+import { PanelBody, SelectControl,__experimentalInputControl  as InputControl, TextareaControl, Flex,FormToggle, __experimentalUnitControl as UnitControl,__experimentalNumberControl as NumberControl  } from '@wordpress/components';
 import { updateData } from '../../../../utils/functions';
 import {   BButtonGroup, Device, IconLibrary, InlineMediaUpload, Label } from '../../../../../../bpl-tools/Components';
 
 
 
 const General = ({ attributes, setAttributes,device }) => {
-  const { icon,sliders,innerGap,containerHeigh,contentAlignment } = attributes;
+  const { icon,sliders,innerGap,containerHeigh,contentAlignment,effect,autoPlay,arrowButton,showPagination} = attributes;
 
-console.log(device);
+
 
   return (
   <>  <PanelBody className='bPlPanelBody' title={__('Slides', 'b-blocks')} initialOpen={false}>
@@ -218,14 +218,90 @@ onChange={(value)=>{
 
   {/* slider option*/}
 <PanelBody className='bPlPanelBody' title={__('Slider Options', 'b-blocks')} initialOpen={false}>
+
+  <Flex  align='center'>
+
+     <Label><strong>Animation/Effect</strong> </Label>
+   <span style={{marginTop:"20px"}}>  <SelectControl
+     
+     value={effect} 
+     onChange={ ( value ) => { 
+       setAttributes({ effect: value })
+     } }
+     options={ [
+       { value: null, label: 'Select a Effect', disabled: true },
+       { value: 'default', label: 'Default' },
+       { value: 'fade', label: 'Fade' },
+       
+     ] }
+   
+   /></span>
+
+  </Flex>
     
+
+<Flex justify='center' align='center'>
+<FormToggle
+	checked={ autoPlay?.enabled }
+	onChange={ () =>{
+    setAttributes({ autoPlay: {...autoPlay, enabled:!autoPlay.enabled } })
+  } }
+/>
+
+  <Label className={"mt0"}>Autoplay</Label>
+
+
+</Flex>
+
+{
+ autoPlay.enabled && <Flex  align='center'>
+
+  <Label><strong>Interval (ms)</strong> </Label>
+<span style={{marginTop:"20px"}}>  <NumberControl 
+  
+  value={autoPlay?.interval} 
+  onChange={ ( value ) => { 
+    setAttributes({ autoPlay: {...autoPlay, interval: value } })
+  } }
+  
+
+/></span>
+
+</Flex>
+ 
+}
+<Flex justify='center' align='center' style={{marginTop:"10px"}}>
+<FormToggle
+	checked={ arrowButton }
+	onChange={ () =>{
+    setAttributes({arrowButton:!arrowButton})
+  } }
+/>
+
+  <Label className={"mt0"}><strong>Show Arrow/Navigation</strong></Label>
+
+
+</Flex>
+
+<Flex justify='center' align='center' style={{marginTop:"10px"}}>
+<FormToggle
+	checked={ showPagination }
+	onChange={ () =>{
+    setAttributes({showPagination:!showPagination})
+  } }
+/>
+
+  <Label className={"mt0"}><strong>Show Indicators/Pagination</strong></Label>
+
+
+</Flex>
 
 
 
     </PanelBody>
 
     {/* indicator */}
-<PanelBody className='bPlPanelBody' title={__('Slider Options', 'b-blocks')} initialOpen={false}>
+<PanelBody className='bPlPanelBody' title={__('Indicators', 'b-blocks')} initialOpen={false}>
     
 
 

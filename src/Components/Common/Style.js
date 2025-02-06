@@ -40,7 +40,7 @@ const Style = ({ attributes, id,device }) => {
 		
 		}
 		.d-block{
-		height:100%;
+		height:${containerHeigh?.desktop};
 		object-fit:cover;
 		}
 
@@ -83,8 +83,12 @@ const Style = ({ attributes, id,device }) => {
   }
 
   @media (max-width: 768px) {
+  	.d-block{
+		height:${containerHeigh?.mobile};
+		object-fit:cover;
+		}
   .carouselContainer {
-    height: 300px; 
+    height:${containerHeigh?.mobile}; 
   }
 
   .caption {
