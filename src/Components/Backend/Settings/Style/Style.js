@@ -4,15 +4,19 @@ import {
   PanelBody,
   __experimentalBoxControl as BoxControl,
   __experimentalUnitControl as UnitControl,
-  __experimentalBorderBoxControl as BorderBoxControl ,
+  __experimentalBorderBoxControl as BorderBoxControl, 
+  SelectControl,
+  Flex,
+  __experimentalNumberControl as NumberControl
 } from "@wordpress/components";
 import { ColorControl, ColorsControl, Label, Typography } from "../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../utils/functions";
 
-const Style = ({ attributes, setAttributes }) => {
-  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding} = attributes;
 
-  
+const Style = ({ attributes, setAttributes }) => {
+  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation} = attributes;
+
+  console.log(titleAnimation);
 
 
   return (
@@ -56,6 +60,44 @@ const Style = ({ attributes, setAttributes }) => {
           setAttributes({titlePadding:value})
           
         }}  />
+         <Flex  align='center'>
+        
+             <Label><strong>Animation</strong> </Label>
+           <span style={{marginTop:"20px"}}>  <SelectControl
+             
+             value={titleAnimation?.effect} 
+             onChange={ ( value ) => { 
+               setAttributes({titleAnimation: {...titleAnimation, effect:value} })
+             } }
+             options={ [
+               { value: null, label: 'Select a Effect', disabled: true },
+               { value: 'slideInFromRight', label: 'Fade in Right' },
+               { value: 'slideInFromLeft', label: 'Fade in Left' },
+               { value: 'slideInFromTop', label: 'Fade in Top' },
+               { value: 'slideInFromBottom', label: 'Fade in Bottom' },
+               { value: 'zoomInFromBottom', label: 'Fade in Zoom' }, 
+               
+             ] }
+           
+           /></span>
+        
+          </Flex>
+
+          <Flex  align='center'>
+        
+        <Label><strong>Delay(s)</strong> </Label>
+      <span style={{marginTop:"20px"}}>  <NumberControl
+        
+        value={titleAnimation?.delay} 
+        step={0.1}
+        onChange={ ( value ) => { 
+          setAttributes({titleAnimation: {...titleAnimation, delay:value} })
+        } }
+        
+      
+      /></span>
+   
+     </Flex>
 
       </PanelBody>
       {/* des */}

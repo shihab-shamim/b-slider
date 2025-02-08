@@ -40,7 +40,9 @@ $primaryColor: #4527a4;
 		text-decoration: none;
 		color: white;
 	  }
-	.buttonAnchore:hover a{
+	.buttonAnchore:hover a, .buttonAnchore:hover{
 		color: #8344c5;
+		background-color: red;
 	}
+	
 }

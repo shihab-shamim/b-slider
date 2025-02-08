@@ -1,7 +1,7 @@
 import { getBoxCSS ,getBorderBoxCSS,getTypoCSS} from '../../../../bpl-tools/utils/getCSS';
 
 const Style = ({ attributes, id,device }) => {
-	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding} = attributes;
+	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation} = attributes;
 
 	const mainSl = `#${id}`;
 	const icon = `${mainSl} .icon`;
@@ -75,8 +75,7 @@ const Style = ({ attributes, id,device }) => {
   bottom: 100px;
   left: ${innerGap.desktop};
   right: ${innerGap.desktop};
-  height: 200px;
-  background-color: rgba(0, 0, 0, 0.6);
+ min-height: 200px;
   padding: 10px;
   border-radius: 5px;
   max-width: 100%;
@@ -145,6 +144,73 @@ const Style = ({ attributes, id,device }) => {
 
   .caption p {
     font-size: 1rem; 
+  }
+}
+
+	  
+	  .sliderTitle {
+		animation: ${titleAnimation?.effect}  ${titleAnimation?.duration}s ease-in-out;
+    animation-delay: ${titleAnimation?.delay}s!important;
+	  }
+    
+
+      @keyframes slideInFromLeft {
+		from {
+		  opacity: 0;
+		  transform: translateX(-300px);
+		}
+		to {
+		  opacity: 1;
+		  transform: translateX(0);
+		}
+	  }
+    @keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(300px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-300px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+  @keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  @keyframes zoomInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1); 
+  }
+    @keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1); 
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8); 
   }
 }
 

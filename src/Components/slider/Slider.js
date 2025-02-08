@@ -4,8 +4,19 @@ import Button from 'react-bootstrap/Button';
 // present code 
 import {  RichText } from '@wordpress/block-editor';
 import { updateData } from '../../utils/functions';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import {useEffect} from "react"
 const Slider = ({ attributes,isShow,setAttributes }) => {
   const { sliders, icon ,effect,autoPlay,arrowButton,showPagination,interrogation,wrap} = attributes;
+  useEffect(()=>{
+    AOS.init({
+      duration: 2000,
+    });
+  },[])
+  useEffect(() => {
+    AOS.refresh();
+  }, [attributes]);
 
   return (
     <Carousel
@@ -56,14 +67,15 @@ const Slider = ({ attributes,isShow,setAttributes }) => {
             <Carousel.Caption
             className='caption'
              
-            >    {!isShow && <RichText className='sliderTitle' placeholder='title...' value={slide.title} onChange={(value)=>{
+             
+            >    {!isShow && <RichText   className='sliderTitle' placeholder='title...' value={slide.title} onChange={(value)=>{
               setAttributes({
                 sliders: updateData(sliders, value,index,"title")
               
               })
 
             }}></RichText> }
-              { isShow && <h3 className='sliderTitle'>{slide.title}</h3>}
+              { isShow && <h3 data-aos="fade-in" className='sliderTitle'>{slide.title}</h3>}
               {!isShow && <RichText  className='sliderDescription' placeholder='description...' value={slide.desc} onChange={(value)=>{
               setAttributes({
                 sliders: updateData(sliders, value,index,"desc")
@@ -71,7 +83,7 @@ const Slider = ({ attributes,isShow,setAttributes }) => {
               })
 
             }}></RichText> }
-              { isShow && <p className='sliderDescription'>{slide.desc}</p>}
+              { isShow && <p  className='sliderDescription'>{slide.desc}</p>}
              {slide?.buttonTest && isShow && <Button className='buttonAnchore'  variant="outline-light"><a className='buttonLink' href='https://www.google.com/' target={slide?.new?"_jkfdjgklfd":"_self"} >{slide?.buttonTest}</a></Button>}
              { !isShow && <Button className='buttonAnchore'  variant="outline-light"><RichText tagName='a' placeholder='button...' value={slide?.buttonTest} onChange={(value)=>{
               setAttributes({

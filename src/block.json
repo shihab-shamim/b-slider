@@ -37,7 +37,7 @@
 				{
 				  "img": "https://images.unsplash.com/photo-1453365180904-3312e935e12b?q=80&w=1929&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 				  "title": "Third Slide Label",
-				  "desc": "Compellingly e-enable cross-media niche markets with focused web services. Proactively extend business strategic theme.",
+				  "desc": "Compellingly e-enable cross-media niche markets with focused web services.",
 				  "buttonTest":"Click Me",
 				  "url":"https://www.google.com/",
 				  "new":false
@@ -240,6 +240,15 @@
 	"descolor":{
 		"type":"string",
 		"default":"#ffffff"
+	},
+	"titleAnimation":{
+		"type":"object",
+		"default":{
+			"effect":"slideInFromLeft",
+			"duration": 1,
+			"delay":0.5
+            
+		}
 	}
 	},
 	"supports": {
