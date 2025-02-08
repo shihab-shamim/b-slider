@@ -17,7 +17,7 @@ const Edit = (props) => {
 
         <div className="bBlocksTestPurpose">
          
-         <Slider attributes={attributes}/>
+         <Slider attributes={attributes} setAttributes={setAttributes} />
         </div>
       </div>
     </>

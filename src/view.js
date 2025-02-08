@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			<Style attributes={attributes} id={blockNameEl.id} />
 
 		
-			<Slider attributes={attributes} />
+			<Slider isShow={true} attributes={attributes} />
 		</>);
 
 		blockNameEl?.removeAttribute('data-attributes');

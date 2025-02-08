@@ -23,7 +23,7 @@
 				  "title": "First Slide Label",
 				  "desc": "This is a short description for the first slide.",
 				  "buttonTest":"Click Me",
-				  "url":"http://ww.google.com",
+				  "url":"https://www.google.com/",
 				  "new":true
 				},
 				{
@@ -31,7 +31,7 @@
 				  "title": "Second Slide Label",
 				  "desc": "This slide has a longer description to check text wrapping properly.",
 				  "buttonTest":"Click Me",
-				  "url":"http://ww.google.com",
+				  "url":"https://www.google.com/",
 				  "new":true
 				},
 				{
@@ -39,8 +39,8 @@
 				  "title": "Third Slide Label",
 				  "desc": "Compellingly e-enable cross-media niche markets with focused web services. Proactively extend business strategic theme.",
 				  "buttonTest":"Click Me",
-				  "url":"http://ww.google.com",
-				  "new":true
+				  "url":"https://www.google.com/",
+				  "new":false
 				}
 			  ]
 		},

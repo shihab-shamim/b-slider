@@ -2,8 +2,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 // present code 
-
-const Slider = ({ attributes }) => {
+import {  RichText } from '@wordpress/block-editor';
+import { updateData } from '../../utils/functions';
+const Slider = ({ attributes,isShow,setAttributes }) => {
   const { sliders, icon ,effect,autoPlay,arrowButton,showPagination,interrogation,wrap} = attributes;
 
   return (
@@ -55,12 +56,31 @@ const Slider = ({ attributes }) => {
             <Carousel.Caption
             className='caption'
              
-            >
-              <h3 className='sliderTitle'  style={{ fontSize: '18px', margin: '5px 0' }}>{slide.title}</h3>
-              <p className='sliderDescription' style={{ fontSize: '14px', margin: '0' }}>{slide.desc}</p>
-             {slide?.buttonTest && <Button  variant="outline-light" style={{ fontSize: '14px', marginTop: '50px' }}>{slide?.buttonTest}</Button>}
+            >    {!isShow && <RichText className='sliderTitle' placeholder='title...' value={slide.title} onChange={(value)=>{
+              setAttributes({
+                sliders: updateData(sliders, value,index,"title")
               
+              })
 
+            }}></RichText> }
+              { isShow && <h3 className='sliderTitle'>{slide.title}</h3>}
+              {!isShow && <RichText  className='sliderDescription' placeholder='description...' value={slide.desc} onChange={(value)=>{
+              setAttributes({
+                sliders: updateData(sliders, value,index,"desc")
+              
+              })
+
+            }}></RichText> }
+              { isShow && <p className='sliderDescription'>{slide.desc}</p>}
+             {slide?.buttonTest && isShow && <Button className='buttonAnchore'  variant="outline-light"><a className='buttonLink' href='https://www.google.com/' target={slide?.new?"_jkfdjgklfd":"_self"} >{slide?.buttonTest}</a></Button>}
+             { !isShow && <Button className='buttonAnchore'  variant="outline-light"><RichText tagName='a' placeholder='button...' value={slide?.buttonTest} onChange={(value)=>{
+              setAttributes({
+                sliders: updateData(sliders, value,index,"buttonTest")
+              
+              })
+             }} className='buttonLink' ></RichText></Button>}
+              
+              
             </Carousel.Caption>
           </div>
         </Carousel.Item>

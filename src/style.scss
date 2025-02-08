@@ -36,6 +36,11 @@ $primaryColor: #4527a4;
 	  .carousel-control-next {
 		z-index: 4 !important;
 	  }
-	  
-	
+	  .buttonLink{
+		text-decoration: none;
+		color: white;
+	  }
+	.buttonAnchore:hover a{
+		color: #8344c5;
+	}
 }
