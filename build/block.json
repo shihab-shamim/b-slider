@@ -256,6 +256,58 @@
         "bottom": "0px",
         "left": "0px"
       }
+    },
+    "keybord": {
+      "type": "boolean",
+      "default": true
+    },
+    "buttonColor": {
+      "type": "object",
+      "default": {
+        "bgColor": "#808080",
+        "color": "#ffffff"
+      }
+    },
+    "buttonPadding": {
+      "type": "object",
+      "default": {
+        "top": "10px",
+        "right": "20px",
+        "bottom": "10px",
+        "left": "20px"
+      }
+    },
+    "buttonRadius": {
+      "type": "object",
+      "default": {
+        "top": "10px",
+        "right": "10px",
+        "bottom": "10px",
+        "left": "10px"
+      }
+    },
+    "buttonBorder": {
+      "type": "object",
+      "default": {
+        "color": "#ffffff",
+        "style": "solid",
+        "width": "1px"
+      }
+    },
+    "buttonColorhO": {
+      "type": "object",
+      "default": {
+        "bgColor": "#ffffff",
+        "color": "#808080"
+      }
+    },
+    "buttonBorderHo": {
+      "type": "object",
+      "default": {
+        "color": "#000000",
+        "style": "solid",
+        "width": "1px"
+      }
     }
   },
   "supports": {

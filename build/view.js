@@ -1700,7 +1700,13 @@ const Style = ({
     descolor,
     desPadding,
     titleAnimation,
-    desAnimation
+    desAnimation,
+    buttonColor,
+    buttonPadding,
+    buttonRadius,
+    buttonBorder,
+    buttonColorhO,
+    buttonBorderHo
   } = attributes;
   const mainSl = `#${id}`;
   const icon = `${mainSl} .icon`;
@@ -1725,6 +1731,27 @@ const Style = ({
        ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)('', desTypho)?.googleFontLink}
     ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(sliderTitle, titleTypho)?.styles}
     ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(sliderDescription, desTypho)?.styles}
+     .buttonAnchore{
+		
+		background-color: ${buttonColor?.bgColor};
+		padding: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBoxCSS)(buttonPadding)};
+    border-radius: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBoxCSS)(buttonRadius)};
+   ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBorderBoxCSS)(buttonBorder)}
+
+	 }
+     .buttonAnchore .buttonLink{
+		
+		color: ${buttonColor?.color};
+	 }
+    .buttonAnchore:hover{
+    background-color:${buttonColorhO?.bgColor};
+    ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBorderBoxCSS)(buttonBorderHo)}
+    }
+    .buttonAnchore:hover .buttonLink{
+    color:${buttonColorhO?.color};
+    }
+	
+
 		${sliderTitle}{
     color:${titleColor};
     padding:${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBoxCSS)(titlePadding)};
@@ -1850,6 +1877,10 @@ const Style = ({
 		animation: ${titleAnimation?.effect}  ${titleAnimation?.duration}s ease-in-out;
     animation-delay: ${titleAnimation?.delay}s!important;
 	  }
+    .buttonAnchore{
+    animation:zoomInFromBottom 0.7s ease-in-out;
+    animation-delay: 0.5s;
+    }
     .sliderDescription{
     	animation: ${desAnimation?.effect} ${desAnimation?.duration}s ease-in-out;
     animation-delay: ${desAnimation?.delay}s!important;
@@ -1969,7 +2000,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Carousel */ "./node_modules/react-bootstrap/esm/Carousel.js");
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/functions */ "./src/utils/functions.js");
@@ -1999,7 +2029,8 @@ const Slider = ({
     arrowButton,
     showPagination,
     interrogation,
-    wrap
+    wrap,
+    keybord
   } = attributes;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     aos__WEBPACK_IMPORTED_MODULE_4___default().init({
@@ -2016,7 +2047,7 @@ const Slider = ({
     slide: true,
     fade: effect === "fade" ? true : false,
     touch: true,
-    keyboard: true,
+    keyboard: keybord,
     className: "caroselWrapper vertical-carousel",
     wrap: wrap,
     prevIcon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -2076,16 +2107,14 @@ const Slider = ({
     }
   }), isShow && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "sliderDescription"
-  }, slide.desc), slide?.buttonTest && isShow && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    className: "buttonAnchore",
-    variant: "outline-light"
+  }, slide.desc), slide?.buttonTest && isShow && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "buttonAnchore"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "buttonLink",
     href: "https://www.google.com/",
     target: slide?.new ? "_jkfdjgklfd" : "_self"
-  }, slide?.buttonTest)), !isShow && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    className: "buttonAnchore",
-    variant: "outline-light"
+  }, slide?.buttonTest)), !isShow && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "buttonAnchore"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "a",
     placeholder: "button...",
@@ -3758,63 +3787,6 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
 }
 
-
-/***/ }),
-
-/***/ "./node_modules/react-bootstrap/esm/Button.js":
-/*!****************************************************!*\
-  !*** ./node_modules/react-bootstrap/esm/Button.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _restart_ui_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @restart/ui/Button */ "./node_modules/@restart/ui/esm/Button.js");
-/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-"use client";
-
-
-
-
-
-
-const Button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({
-  as,
-  bsPrefix,
-  variant = 'primary',
-  size,
-  active = false,
-  disabled = false,
-  className,
-  ...props
-}, ref) => {
-  const prefix = (0,_ThemeProvider__WEBPACK_IMPORTED_MODULE_3__.useBootstrapPrefix)(bsPrefix, 'btn');
-  const [buttonProps, {
-    tagName
-  }] = (0,_restart_ui_Button__WEBPACK_IMPORTED_MODULE_4__.useButtonProps)({
-    tagName: as,
-    disabled,
-    ...props
-  });
-  const Component = tagName;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Component, {
-    ...buttonProps,
-    ...props,
-    ref: ref,
-    disabled: disabled,
-    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && 'disabled')
-  });
-});
-Button.displayName = 'Button';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
 
 /***/ }),
 

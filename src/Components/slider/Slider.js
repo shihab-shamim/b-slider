@@ -8,7 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {useEffect} from "react"
 const Slider = ({ attributes,isShow,setAttributes }) => {
-  const { sliders, icon ,effect,autoPlay,arrowButton,showPagination,interrogation,wrap} = attributes;
+  const { sliders, icon ,effect,autoPlay,arrowButton,showPagination,interrogation,wrap,keybord} = attributes;
   useEffect(()=>{
     AOS.init({
       duration: 2000,
@@ -27,7 +27,7 @@ const Slider = ({ attributes,isShow,setAttributes }) => {
     fade={effect==="fade"?true:false}
     touch={true}
     
-   keyboard={true}
+   keyboard={keybord}
     className='caroselWrapper vertical-carousel'
       wrap={wrap} 
       prevIcon={
@@ -84,13 +84,15 @@ const Slider = ({ attributes,isShow,setAttributes }) => {
 
             }}></RichText> }
               { isShow && <p  className='sliderDescription'>{slide.desc}</p>}
-             {slide?.buttonTest && isShow && <Button className='buttonAnchore'  variant="outline-light"><a className='buttonLink' href='https://www.google.com/' target={slide?.new?"_jkfdjgklfd":"_self"} >{slide?.buttonTest}</a></Button>}
-             { !isShow && <Button className='buttonAnchore'  variant="outline-light"><RichText tagName='a' placeholder='button...' value={slide?.buttonTest} onChange={(value)=>{
+
+             {slide?.buttonTest && isShow && <button className='buttonAnchore'  ><a className='buttonLink' href='https://www.google.com/' target={slide?.new?"_jkfdjgklfd":"_self"} >{slide?.buttonTest}</a></button>}
+
+             { !isShow && <button className='buttonAnchore'  ><RichText   tagName='a' placeholder='button...' value={slide?.buttonTest} onChange={(value)=>{
               setAttributes({
                 sliders: updateData(sliders, value,index,"buttonTest")
               
               })
-             }} className='buttonLink' ></RichText></Button>}
+             }} className='buttonLink' ></RichText></button>}
               
               
             </Carousel.Caption>

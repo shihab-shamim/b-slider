@@ -1,7 +1,7 @@
 import { getBoxCSS ,getBorderBoxCSS,getTypoCSS} from '../../../../bpl-tools/utils/getCSS';
 
 const Style = ({ attributes, id,device }) => {
-	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation} = attributes;
+	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation,buttonColor,buttonPadding,buttonRadius,buttonBorder,buttonColorhO,buttonBorderHo} = attributes;
 
 	const mainSl = `#${id}`;
 	const icon = `${mainSl} .icon`;
@@ -27,6 +27,27 @@ const Style = ({ attributes, id,device }) => {
        ${getTypoCSS('', desTypho)?.googleFontLink}
     ${getTypoCSS(sliderTitle, titleTypho)?.styles}
     ${getTypoCSS(sliderDescription, desTypho)?.styles}
+     .buttonAnchore{
+		
+		background-color: ${buttonColor?.bgColor};
+		padding: ${getBoxCSS(buttonPadding)};
+    border-radius: ${getBoxCSS(buttonRadius)};
+   ${getBorderBoxCSS(buttonBorder)}
+
+	 }
+     .buttonAnchore .buttonLink{
+		
+		color: ${buttonColor?.color};
+	 }
+    .buttonAnchore:hover{
+    background-color:${buttonColorhO?.bgColor};
+    ${getBorderBoxCSS(buttonBorderHo)}
+    }
+    .buttonAnchore:hover .buttonLink{
+    color:${buttonColorhO?.color};
+    }
+	
+
 		${sliderTitle}{
     color:${titleColor};
     padding:${getBoxCSS(titlePadding)};
@@ -152,6 +173,10 @@ const Style = ({ attributes, id,device }) => {
 		animation: ${titleAnimation?.effect}  ${titleAnimation?.duration}s ease-in-out;
     animation-delay: ${titleAnimation?.delay}s!important;
 	  }
+    .buttonAnchore{
+    animation:zoomInFromBottom 0.7s ease-in-out;
+    animation-delay: 0.5s;
+    }
     .sliderDescription{
     	animation: ${desAnimation?.effect} ${desAnimation?.duration}s ease-in-out;
     animation-delay: ${desAnimation?.delay}s!important;

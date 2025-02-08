@@ -23,13 +23,8 @@
 .wp-block-b-blocks-test-purpose .carousel-control-next {
   z-index: 4 !important;
 }
-.wp-block-b-blocks-test-purpose .buttonLink {
+.wp-block-b-blocks-test-purpose .buttonAnchore .buttonLink {
   text-decoration: none;
-  color: white;
-}
-.wp-block-b-blocks-test-purpose .buttonAnchore:hover a, .wp-block-b-blocks-test-purpose .buttonAnchore:hover {
-  color: #8344c5;
-  background-color: red;
 }
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/bootstrap/dist/css/bootstrap.min.css ***!

@@ -10,7 +10,7 @@ import {   BButtonGroup, Device, IconLibrary, InlineMediaUpload, Label } from '.
 
 const General = ({ attributes, setAttributes,device }) => {
   const { icon,sliders,innerGap,containerHeigh,contentAlignment,effect,autoPlay,arrowButton,showPagination,interrogation,wrap,direction,
-    indicatorPosition
+    indicatorPosition,keybord
   } = attributes;
 
 
@@ -322,6 +322,19 @@ onChange={(value)=>{
 />
 
   <Label className={"mt0"}><strong>Wrap Slide Enable</strong></Label>
+
+
+</Flex>
+
+<Flex justify='center' align='center' style={{marginTop:"10px"}}>
+<FormToggle
+	checked={ keybord}
+	onChange={ () =>{
+    setAttributes({keybord:!keybord})
+  } }
+/>
+
+  <Label className={"mt0"}><strong>Keyboard Control</strong></Label>
 
 
 </Flex>

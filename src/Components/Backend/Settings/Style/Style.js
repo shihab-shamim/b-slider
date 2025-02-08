@@ -14,7 +14,7 @@ import { updateData } from "../../../../utils/functions";
 
 
 const Style = ({ attributes, setAttributes }) => {
-  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation} = attributes;
+  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation,buttonColor,buttonPadding,buttonRadius,buttonBorder,buttonBorderHo,buttonColorhO} = attributes;
 
   console.log(titleAnimation);
 
@@ -235,6 +235,59 @@ const Style = ({ attributes, setAttributes }) => {
          values={iconRadius} onChange={(value)=>{
           setAttributes({iconRadius: value})
         }} />
+      </PanelBody>
+
+      {/* button */}
+      <PanelBody
+       className="bPlPanelBody"
+       title={__("Button", "b-blocks")}
+       initialOpen={false}
+      
+      >
+        <ColorControl value={buttonColor?.color} label='Color' onChange={(value)=>{
+          setAttributes({buttonColor:{...buttonColor, color:value}})
+
+        }} />
+        <ColorControl value={buttonColor?.bgColor} label='Background' onChange={(value)=>{
+          setAttributes({buttonColor:{...buttonColor, bgColor:value}})
+
+        }} />
+         <BoxControl
+        Style={{marginTop:"50px",border:"1px solid red"}}
+        label="Padding"
+         values={buttonPadding} onChange={(value)=>{
+          setAttributes({buttonPadding: value})
+        }} />
+         <BoxControl
+        Style={{marginTop:"50px",border:"1px solid red"}}
+        label="Radius"
+         values={buttonRadius} onChange={(value)=>{
+          setAttributes({buttonRadius: value})
+        }} />
+       
+       <BorderBoxControl label="Border" value={buttonBorder} onChange={(value)=>{
+        setAttributes({buttonBorder: value})
+ 
+       }} />
+
+       <Label>Hover Style</Label>
+       <ColorControl value={buttonColorhO?.color} label='Color' onChange={(value)=>{
+          setAttributes({buttonColorhO:{...buttonColorhO, color:value}})
+
+        }} />
+
+       <ColorControl value={buttonColorhO?.bgColor} label='Background' onChange={(value)=>{
+          setAttributes({buttonColorhO:{...buttonColorhO, bgColor:value}})
+
+        }} />
+        
+       
+       <BorderBoxControl label="Border" value={buttonBorderHo} onChange={(value)=>{
+        setAttributes({buttonBorderHo: value})
+ 
+       }} />
+
+
       </PanelBody>
 
 {/*  indicators */}
