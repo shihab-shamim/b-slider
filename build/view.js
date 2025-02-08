@@ -1699,7 +1699,8 @@ const Style = ({
     desTypho,
     descolor,
     desPadding,
-    titleAnimation
+    titleAnimation,
+    desAnimation
   } = attributes;
   const mainSl = `#${id}`;
   const icon = `${mainSl} .icon`;
@@ -1849,18 +1850,23 @@ const Style = ({
 		animation: ${titleAnimation?.effect}  ${titleAnimation?.duration}s ease-in-out;
     animation-delay: ${titleAnimation?.delay}s!important;
 	  }
+    .sliderDescription{
+    	animation: ${desAnimation?.effect} ${desAnimation?.duration}s ease-in-out;
+    animation-delay: ${desAnimation?.delay}s!important;
+	  }
+    }
     
 
       @keyframes slideInFromLeft {
-		from {
-		  opacity: 0;
-		  transform: translateX(-300px);
-		}
-		to {
-		  opacity: 1;
-		  transform: translateX(0);
-		}
-	  }
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
     @keyframes slideInFromRight {
   from {
     opacity: 0;

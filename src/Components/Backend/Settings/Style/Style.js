@@ -14,7 +14,7 @@ import { updateData } from "../../../../utils/functions";
 
 
 const Style = ({ attributes, setAttributes }) => {
-  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation} = attributes;
+  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation} = attributes;
 
   console.log(titleAnimation);
 
@@ -98,6 +98,21 @@ const Style = ({ attributes, setAttributes }) => {
       /></span>
    
      </Flex>
+          <Flex  align='center'>
+        
+        <Label><strong>Duration(s)</strong> </Label>
+      <span style={{marginTop:"20px"}}>  <NumberControl
+        
+        value={titleAnimation?.duration} 
+        step={0.1}
+        onChange={ ( value ) => { 
+          setAttributes({titleAnimation: {...titleAnimation, duration:value} })
+        } }
+        
+      
+      /></span>
+   
+     </Flex>
 
       </PanelBody>
       {/* des */}
@@ -117,6 +132,59 @@ const Style = ({ attributes, setAttributes }) => {
           setAttributes({desPadding:value})
           
         }}  />
+
+<Flex  align='center'>
+        
+        <Label><strong>Animation</strong> </Label>
+      <span style={{marginTop:"20px"}}>  <SelectControl
+        
+        value={desAnimation?.effect} 
+        onChange={ ( value ) => { 
+          setAttributes({desAnimation: {...desAnimation, effect:value} })
+        } }
+        options={ [
+          { value: null, label: 'Select a Effect', disabled: true },
+          { value: 'slideInFromRight', label: 'Fade in Right' },
+          { value: 'slideInFromLeft', label: 'Fade in Left' },
+          { value: 'slideInFromTop', label: 'Fade in Top' },
+          { value: 'slideInFromBottom', label: 'Fade in Bottom' },
+          { value: 'zoomInFromBottom', label: 'Fade in Zoom' }, 
+          
+        ] }
+      
+      /></span>
+   
+     </Flex>
+     <Flex  align='center'>
+        
+        <Label><strong>Delay(s)</strong> </Label>
+      <span style={{marginTop:"20px"}}>  <NumberControl
+        
+        value={desAnimation?.delay} 
+        step={0.1}
+        onChange={ ( value ) => { 
+          setAttributes({desAnimation: {...desAnimation, delay:value} })
+        } }
+        
+      
+      /></span>
+   
+     </Flex>
+     <Flex  align='center'>
+        
+        <Label><strong>Duration(s)</strong> </Label>
+      <span style={{marginTop:"20px"}}>  <NumberControl
+        
+        value={desAnimation?.duration} 
+        step={0.1}
+        onChange={ ( value ) => { 
+          setAttributes({desAnimation: {...desAnimation, duration:value} })
+        } }
+        
+      
+      /></span>
+   
+     </Flex>
 
       </PanelBody>
 

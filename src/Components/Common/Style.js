@@ -1,7 +1,7 @@
 import { getBoxCSS ,getBorderBoxCSS,getTypoCSS} from '../../../../bpl-tools/utils/getCSS';
 
 const Style = ({ attributes, id,device }) => {
-	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation} = attributes;
+	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation} = attributes;
 
 	const mainSl = `#${id}`;
 	const icon = `${mainSl} .icon`;
@@ -152,18 +152,23 @@ const Style = ({ attributes, id,device }) => {
 		animation: ${titleAnimation?.effect}  ${titleAnimation?.duration}s ease-in-out;
     animation-delay: ${titleAnimation?.delay}s!important;
 	  }
+    .sliderDescription{
+    	animation: ${desAnimation?.effect} ${desAnimation?.duration}s ease-in-out;
+    animation-delay: ${desAnimation?.delay}s!important;
+	  }
+    }
     
 
       @keyframes slideInFromLeft {
-		from {
-		  opacity: 0;
-		  transform: translateX(-300px);
-		}
-		to {
-		  opacity: 1;
-		  transform: translateX(0);
-		}
-	  }
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
     @keyframes slideInFromRight {
   from {
     opacity: 0;

@@ -244,7 +244,17 @@
 	"titleAnimation":{
 		"type":"object",
 		"default":{
-			"effect":"slideInFromLeft",
+			"effect":"slideInFromRight",
+			"duration": 1,
+			"delay":0.5
+            
+		}
+	}
+	,
+	"desAnimation":{
+		"type":"object",
+		"default":{
+			"effect":"slideInFromBottom",
 			"duration": 1,
 			"delay":0.5
             
