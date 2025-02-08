@@ -56,8 +56,8 @@ const Slider = ({ attributes }) => {
             className='caption'
              
             >
-              <h3 style={{ fontSize: '18px', margin: '5px 0' }}>{slide.title}</h3>
-              <p style={{ fontSize: '14px', margin: '0' }}>{slide.desc}</p>
+              <h3 className='sliderTitle'  style={{ fontSize: '18px', margin: '5px 0' }}>{slide.title}</h3>
+              <p className='sliderDescription' style={{ fontSize: '14px', margin: '0' }}>{slide.desc}</p>
              {slide?.buttonTest && <Button  variant="outline-light" style={{ fontSize: '14px', marginTop: '50px' }}>{slide?.buttonTest}</Button>}
               
 

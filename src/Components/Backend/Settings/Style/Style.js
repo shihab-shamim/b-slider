@@ -6,12 +6,13 @@ import {
   __experimentalUnitControl as UnitControl,
   __experimentalBorderBoxControl as BorderBoxControl ,
 } from "@wordpress/components";
-import { ColorControl, ColorsControl, Label } from "../../../../../../bpl-tools/Components";
+import { ColorControl, ColorsControl, Label, Typography } from "../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../utils/functions";
 
 const Style = ({ attributes, setAttributes }) => {
-  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius} = attributes;
+  const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding} = attributes;
 
+  
 
 
   return (
@@ -33,6 +34,45 @@ const Style = ({ attributes, setAttributes }) => {
 
         <BoxControl values={sliderRadius} label={__("Border Radius","b-blocks")} onChange={(value)=>{
           setAttributes({sliderRadius:value})
+          
+        }}  />
+
+      </PanelBody>
+
+      {/* title */}
+      <PanelBody
+      className="bPlPanelBody"
+      title={__("Title", "b-blocks")}
+      initialOpen={false}
+      >
+        <Typography value={titleTypho} onChange={(value)=>{
+          setAttributes({titleTypho:value})
+        }}  />
+
+        <ColorControl value={titleColor} onChange={(value)=>{
+          setAttributes({titleColor:value})
+        }}  />
+           <BoxControl values={titlePadding} label={__("Padding","b-blocks")} onChange={(value)=>{
+          setAttributes({titlePadding:value})
+          
+        }}  />
+
+      </PanelBody>
+      {/* des */}
+      <PanelBody
+      className="bPlPanelBody"
+      title={__("Description", "b-blocks")}
+      initialOpen={false}
+      >
+        <Typography value={desTypho} onChange={(value)=>{
+          setAttributes({desTypho:value})
+        }}  />
+
+        <ColorControl value={descolor} onChange={(value)=>{
+          setAttributes({descolor:value})
+        }}  />
+           <BoxControl values={desPadding} label={__("Margin","b-blocks")} onChange={(value)=>{
+          setAttributes({desPadding:value})
           
         }}  />
 

@@ -1681,11 +1681,19 @@ const Style = ({
     indicatorPosition,
     overlyColor,
     slideMargin,
-    sliderRadius
+    sliderRadius,
+    titleTypho,
+    titleColor,
+    titlePadding,
+    desTypho,
+    descolor,
+    desPadding
   } = attributes;
   const mainSl = `#${id}`;
   const icon = `${mainSl} .icon`;
   const prev = `${mainSl} .prev`;
+  const sliderTitle = `${mainSl} .sliderTitle`;
+  const sliderDescription = `${mainSl} .sliderDescription`;
   const possition = () => {
     if (indicatorPosition === "top") {
       return 'top:-440px;';
@@ -1694,10 +1702,25 @@ const Style = ({
       return 'bottom:0px;';
     }
   };
+  // ${getTypoCSS('', dynamicStyle)?.googleFontLink}
+  // ${getTypoCSS(typho, dynamicStyle)?.styles}
+
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
     dangerouslySetInnerHTML: {
       __html: `
-		
+       ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)('', titleTypho)?.googleFontLink}
+       ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)('', desTypho)?.googleFontLink}
+    ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(sliderTitle, titleTypho)?.styles}
+    ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(sliderDescription, desTypho)?.styles}
+		${sliderTitle}{
+    color:${titleColor};
+    padding:${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBoxCSS)(titlePadding)};
+    font-size:${titleTypho?.fontSize?.desktop}!important;
+    }
+    ${sliderDescription}{
+    color:${descolor};
+    margin:${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBoxCSS)(desPadding)}!important;
+    }
 		${icon},.icon svg{
 		width: ${iconsStyle?.width};
 		height: ${iconsStyle?.height};
@@ -1927,11 +1950,13 @@ const Slider = ({
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_bootstrap_Carousel__WEBPACK_IMPORTED_MODULE_2__["default"].Caption, {
     className: "caption"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "sliderTitle",
     style: {
       fontSize: '18px',
       margin: '5px 0'
     }
   }, slide.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "sliderDescription",
     style: {
       fontSize: '14px',
       margin: '0'

@@ -180,6 +180,66 @@
 			"bottom":"0px",
 			"left":"0px"
 		}
+	},
+	"titleTypho":{
+		"type":"object",
+		"default":{
+			
+				"fontFamily": "",
+				"fontCategory": "",
+				"fontWeight": "",
+				"isUploadFont": "",
+				"fontSize": {
+				  "desktop": "20px",
+				  "tablet": "20px",
+				  "mobile": "20px"
+				},
+				"fontStyle": "",
+				"textTransform": "",
+				"textDecoration": "",
+				"lineHeight": "",
+				"letterSpace": ""
+			  
+		}
+	},
+	"titleColor":{
+		"type":"string",
+		"default":"#ffffff"
+	},
+	"desPadding":{
+		"type":"object",
+		"default":{
+			"top":"0px",
+			"right":"0px",
+			"bottom":"0px",
+			"left":"0px"
+		}
+
+	},
+	"desTypho":{
+		"type":"object",
+		"default":{
+			
+				"fontFamily": "",
+				"fontCategory": "",
+				"fontWeight": "",
+				"isUploadFont": "",
+				"fontSize": {
+				  "desktop": "20px",
+				  "tablet": "20px",
+				  "mobile": "20px"
+				},
+				"fontStyle": "",
+				"textTransform": "",
+				"textDecoration": "",
+				"lineHeight": "",
+				"letterSpace": ""
+			  
+		}
+	},
+	"descolor":{
+		"type":"string",
+		"default":"#ffffff"
 	}
 	},
 	"supports": {

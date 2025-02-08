@@ -1,11 +1,13 @@
-import { getBoxCSS ,getBorderBoxCSS} from '../../../../bpl-tools/utils/getCSS';
+import { getBoxCSS ,getBorderBoxCSS,getTypoCSS} from '../../../../bpl-tools/utils/getCSS';
 
 const Style = ({ attributes, id,device }) => {
-	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius} = attributes;
+	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding} = attributes;
 
 	const mainSl = `#${id}`;
 	const icon = `${mainSl} .icon`;
 	const prev = `${mainSl} .prev`;
+	const sliderTitle = `${mainSl} .sliderTitle`;
+	const sliderDescription = `${mainSl} .sliderDescription`;
   const possition=()=>{
     if(indicatorPosition === "top"){
       return 'top:-440px;'
@@ -14,10 +16,26 @@ const Style = ({ attributes, id,device }) => {
       return 'bottom:0px;'
     }
   }
+  // ${getTypoCSS('', dynamicStyle)?.googleFontLink}
+  // ${getTypoCSS(typho, dynamicStyle)?.styles}
+  
 
 	return <style dangerouslySetInnerHTML={{
+ 
 		__html: `
-		
+       ${getTypoCSS('', titleTypho)?.googleFontLink}
+       ${getTypoCSS('', desTypho)?.googleFontLink}
+    ${getTypoCSS(sliderTitle, titleTypho)?.styles}
+    ${getTypoCSS(sliderDescription, desTypho)?.styles}
+		${sliderTitle}{
+    color:${titleColor};
+    padding:${getBoxCSS(titlePadding)};
+    font-size:${titleTypho?.fontSize?.desktop}!important;
+    }
+    ${sliderDescription}{
+    color:${descolor};
+    margin:${getBoxCSS(desPadding)}!important;
+    }
 		${icon},.icon svg{
 		width: ${iconsStyle?.width};
 		height: ${iconsStyle?.height};
