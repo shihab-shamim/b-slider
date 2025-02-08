@@ -19,25 +19,25 @@
 			"type":"array",
 			"default":[
 				{
-				  "img": "https://media.istockphoto.com/id/1285124274/photo/middle-age-man-portrait.jpg?s=2048x2048&w=is&k=20&c=bTE9WTRrEu0QmBJhr-3bqc4xO5jLpkuXFScIpSJWXRQ=",
-				  "title": "First Slide Label",
-				  "desc": "This is a short description for the first slide.",
+				  "img": "https://plus.unsplash.com/premium_photo-1720188548716-9de4d2911fff?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+				  "title": "Taste the Innovation",
+				  "desc": "Fresh flavors, unforgettable bites.",
 				  "buttonTest":"Click Me",
 				  "url":"https://www.google.com/",
 				  "new":true
 				},
 				{
-				  "img": "https://plus.unsplash.com/premium_photo-1661367915642-12ed8cc242bb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-				  "title": "Second Slide Label",
-				  "desc": "This slide has a longer description to check text wrapping properly.",
+				  "img": "https://images.unsplash.com/photo-1738193026612-4a953a4f4e96?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+				  "title": "Pure & Bold",
+				  "desc": "Fresh ingredients, rich taste.",
 				  "buttonTest":"Click Me",
 				  "url":"https://www.google.com/",
 				  "new":true
 				},
 				{
-				  "img": "https://images.unsplash.com/photo-1453365180904-3312e935e12b?q=80&w=1929&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-				  "title": "Third Slide Label",
-				  "desc": "Compellingly e-enable cross-media niche markets with focused web services.",
+				  "img": "https://images.unsplash.com/photo-1738694237335-a537515c0b7b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+				  "title": "Elevate Your Senses",
+				  "desc": "A journey of flavor awaits.",
 				  "buttonTest":"Click Me",
 				  "url":"https://www.google.com/",
 				  "new":false
@@ -258,6 +258,14 @@
 			"duration": 1,
 			"delay":0.5
             
+		}
+	},"titlePadding":{
+		"type":"object",
+		"default":{
+			"top":"0px",
+			"right":"0px",
+			"bottom":"0px",
+			"left":"0px"
 		}
 	}
 	},
