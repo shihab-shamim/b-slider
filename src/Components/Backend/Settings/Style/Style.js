@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { __ } from "@wordpress/i18n";
 import {
   PanelBody,
@@ -9,14 +9,13 @@ import {
   Flex,
   __experimentalNumberControl as NumberControl
 } from "@wordpress/components";
-import { ColorControl, ColorsControl, Label, Typography } from "../../../../../../bpl-tools/Components";
+import { ColorControl, Label, Typography } from "../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../utils/functions";
 
 
 const Style = ({ attributes, setAttributes }) => {
   const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation,buttonColor,buttonPadding,buttonRadius,buttonBorder,buttonBorderHo,buttonColorhO} = attributes;
 
-  console.log(titleAnimation);
 
 
   return (

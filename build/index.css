@@ -129,7 +129,7 @@
 }
 .bPlInspectorInfo .onSale {
   font-size: 16px;
-  color: #007FFF;
+  color: #007fff;
   padding: 5px;
 }
 .bPlInspectorInfo .onSale * {
@@ -166,6 +166,7 @@
   justify-content: center;
   border-bottom: 0px;
   border: 1px solid #4527a4;
+  white-space: nowrap;
 }
 .bPlTabPanel.small .components-tab-panel__tabs button:focus, .bPlTabPanel.mini .components-tab-panel__tabs button:focus {
   color: #4527a4;
@@ -258,6 +259,10 @@
   width: 25px !important;
   color: #fff !important;
   background-color: #4527a4 !important;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .bPlPanelBody .components-checkbox-control .components-base-control__field,
 .bPlDropdownPopover .components-popover__content .components-checkbox-control .components-base-control__field {
@@ -500,11 +505,18 @@
   box-shadow: none;
   padding: 6px 10.5px;
 }
+.bPlPanelBody .bPlBtnGroup .components-button > span,
+.bPlPanelBody .bPlBtnGroup .is-primary > span,
+.bPlDropdownPopover .components-popover__content .bPlBtnGroup .components-button > span,
+.bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary > span {
+  display: flex;
+}
 .bPlPanelBody .bPlBtnGroup .components-button:hover,
 .bPlPanelBody .bPlBtnGroup .is-primary:hover,
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .components-button:hover,
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary:hover {
-  color: #4527a4;
+  color: #fff;
+  background-color: #8344c5;
 }
 .bPlPanelBody .bPlBtnGroup .components-button .dashicon,
 .bPlPanelBody .bPlBtnGroup .is-primary .dashicon,
@@ -519,6 +531,12 @@
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary.has-icon {
   padding: 6px 9px;
 }
+.bPlPanelBody .bPlBtnGroup .components-button.has-icon.is-small,
+.bPlPanelBody .bPlBtnGroup .is-primary.has-icon.is-small,
+.bPlDropdownPopover .components-popover__content .bPlBtnGroup .components-button.has-icon.is-small,
+.bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary.has-icon.is-small {
+  padding: 0 4px;
+}
 .bPlPanelBody .bPlBtnGroup .is-primary,
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary {
   color: #fff;
@@ -526,11 +544,11 @@
 }
 .bPlPanelBody .bPlBtnGroup .is-primary:hover,
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary:hover {
-  background-color: #8344c5 !important;
+  background-color: #4527a4 !important;
 }
 .bPlPanelBody .bPlBtnGroup .is-primary:focus,
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary:focus {
-  outline: 2px solid #8344c5 !important;
+  outline: 2px solid #4527a4 !important;
 }
 .bPlPanelBody .bPlBtnGroup svg,
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup svg {
@@ -553,6 +571,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  color: #fff;
+}
+.bPlPanelBody .addItem button:hover,
+.bPlDropdownPopover .components-popover__content .addItem button:hover {
   color: #fff;
 }
 .bPlPanelBody .addItem button:focus,
@@ -649,6 +671,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.bPlCustomPopoverWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.bPlCustomPopoverChildren {
+  width: 240px;
+  padding: 10px;
+}
 /*!*************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../bpl-tools/Components/BoxControl/BoxControl.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************/
@@ -683,20 +718,35 @@
   font-size: 11px;
   text-transform: capitalize;
 }
-.bPlBoxControl .boxLinkButton {
+.bPlBoxControl .bplBoxControlLinkButton {
   background: transparent;
-  border: none;
-  padding: 0;
-  margin-top: -13px;
+  cursor: pointer;
+  height: 32px;
+  display: grid;
+  align-self: self-start;
+  align-content: center;
+  padding: 0 4px;
+  border: 1px solid #949494;
+  border-left: unset;
+  border-radius: 0 2px 2px 0;
   cursor: pointer;
 }
-.bPlBoxControl .boxLinkButton .dashicons {
+.bPlBoxControl .bplBoxControlLinkButton.activeLink {
+  background-color: #4527a4;
+}
+.bPlBoxControl .bplBoxControlLinkButton.activeLink .dashicons {
+  color: #fff;
+}
+.bPlBoxControl .bplBoxControlLinkButton .dashicons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
 }
-.bPlBoxControl .boxLinkButton .dashicons.dashicons-image-rotate {
+.bPlBoxControl .bplBoxControlLinkButton .dashicons.dashicons-image-rotate {
   color: #666;
 }
-.bPlBoxControl .boxLinkButton .dashicons.dashicons-image-rotate:hover {
+.bPlBoxControl .bplBoxControlLinkButton .dashicons.dashicons-image-rotate:hover {
   color: black;
 }
 /*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -1806,6 +1856,17 @@
   width: 14px;
   height: 14px;
   font-size: 14px;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../bpl-tools/Components/BplBlockPreview/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+.bPlBlockPreviewWrapper {
+  display: flex;
+  align-items: center;
+}
+.bPlBlockPreviewWrapper .bPl-previewBtn.bPl-activeBtn {
+  background: #4527a4;
+  color: #fff;
 }
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/bootstrap/dist/css/bootstrap.min.css ***!

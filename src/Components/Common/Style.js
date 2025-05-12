@@ -1,6 +1,6 @@
 import { getBoxCSS ,getBorderBoxCSS,getTypoCSS} from '../../../../bpl-tools/utils/getCSS';
 
-const Style = ({ attributes, id,device }) => {
+const Style = ({ attributes, id }) => {
 	const { iconsStyle ,iconRadius,indicator,activeIndicator,indicatoRadius,indicatorBorder,innerGap,containerHeigh,contentAlignment,direction,indicatorPosition,overlyColor,slideMargin,sliderRadius,titleTypho,titleColor,titlePadding,desTypho,descolor,desPadding,titleAnimation,desAnimation,buttonColor,buttonPadding,buttonRadius,buttonBorder,buttonColorhO,buttonBorderHo} = attributes;
 
 	const mainSl = `#${id}`;

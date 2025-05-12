@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+
 // present code 
 import {  RichText } from '@wordpress/block-editor';
 import { updateData } from '../../utils/functions';
